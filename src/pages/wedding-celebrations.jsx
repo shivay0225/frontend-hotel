@@ -34,15 +34,25 @@ return(
  
     <>
       <div className=" container Wc-banner">
-       {  <video className="bg-video" autoPlay muted loop playsInline>
-        <source src=" https://youtu.be/__z8oGx1p7o?si=Mt1qHTJtf49XCNxc" type="video/mp4"/>
-      </video>  }
+   <video
+  className="bg-video"
+  autoPlay
+  muted
+  loop
+  playsInline
+>
+  <source
+    src="https://res.cloudinary.com/dbwccfrco/video/upload/wcvideo2_vpj5v1.mp4"
+    type="video/mp4"
+  />
+</video>
+
 
       {/* Gradient Overlay */}
-      {/* { <div className="overlay"/>} */}
+      { <div className="overlay"/>}
         <Header />
         {/* bootom booking bar */}
-        <div className=" flex justify-center items-center">
+        <div className =" flex justify-center items-center">
           <div className="  cn2  flex justify-center items-center ">
             <div className="booking-bar lg:flex lg:py-2 py-4  justify-between items-center">
               <div className="booking-item lg:my-0 my-3 ">
