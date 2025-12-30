@@ -34,9 +34,9 @@ return(
  
     <>
       <div className=" container Wc-banner">
-       {/* {  <video className="bg-video" autoPlay muted loop playsInline>
-        <source src=" public/images/WCvideo.mp4" type="video/mp4"/>
-      </video>  } */}
+       {  <video className="bg-video" autoPlay muted loop playsInline>
+        <source src=" https://youtu.be/__z8oGx1p7o?si=Mt1qHTJtf49XCNxc" type="video/mp4"/>
+      </video>  }
 
       {/* Gradient Overlay */}
       {/* { <div className="overlay"/>} */}
