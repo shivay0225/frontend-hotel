@@ -3,7 +3,7 @@ import Header from "../components/header"
 import { useState } from "react";
 import DatePickerModule from "../components/DatePicker";
 import Footer2 from "../components/footer"
-import WcSlider from "../components/Wcslider";
+import WcSlider from "../components/wcslider";
 import { Link } from "react-router-dom";
 import MySlider3 from "../components/slider5";
 
