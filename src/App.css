@@ -1,0 +1,1343 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap");
+
+/* :start */
+
+.cn1 {
+    position: relative;
+  background-image: url("/images/hotels/hotelimage6.jpg");
+    /* background-image: url("/images/hotels/hotel3.jpg"); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: contain;
+    background-position: center;
+}
+.cn1::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 21%; /* adjust darkness height */
+  background: linear-gradient(
+    to bottom,
+    rgba(88, 88, 88, 0.853),
+    rgba(66, 66, 66, 0) 
+  );
+  pointer-events: none;
+}
+
+
+
+
+
+
+.font-royal {
+  font-family: "Playfair Display", serif;
+  letter-spacing: 0.1px;
+  font-weight: 500;
+  color: #f5f3f0;
+font-size: 1.2rem;
+
+  -webkit-font-smoothing: antialiased;
+    transition: color 0.3s ease-in-out;
+    
+}
+
+
+.all:hover .font-royal{
+color: black;
+}
+
+.all.nav-active .font-royal{
+    color: black;
+}
+
+
+.logo {
+  position: relative;
+  width: fit-content;
+}
+
+.logoimg-white {
+    height: 70px;
+    width: 90px;
+  opacity: 1;
+  transition: opacity 0.1s ease-in-out
+  
+}
+
+.logoimg-black {
+   opacity: 0;
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.1s ease-in-out;
+    height: 70px;
+    width: 90px;
+}
+
+
+
+/* hover + scroll + menuOpen */
+.all:hover .logoimg-white,
+.all.nav-active .logoimg-white {
+  opacity: 0;
+}
+
+.all:hover .logoimg-black ,
+.all.nav-active .logoimg-black  {
+  opacity: 1;
+}
+.bt-book {
+    background-color: #ad2132;
+    color: white;
+    border: 0;
+    padding: 10px 30px 10px 30px;
+}
+
+.cn2 {
+    position: absolute;
+    width: 85%;
+    bottom: 4%;
+}
+
+.booking-bar {
+    background: rgba(169, 165, 152, 0.208);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    width: 100%;
+    padding: 15px;
+}
+
+.booking-item {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+    padding-right :10px;
+}
+
+.logoimg2 {
+    height: 28px;
+    width: 29px;
+}
+
+.booking-list {
+    padding: 10px 5px;
+    border: none;
+    background: transparent;
+    font-size: 15px;
+    color: #e9e2e2;
+    /* black text */
+    outline: none;
+    font-weight: 600;
+     padding-right :90px;
+}
+
+.booking-list-2 {
+    padding: 10px 5px;
+    border: none;
+    background: transparent;
+    font-size: 15px;
+    color: #e9e2e2;
+    /* black text */
+    outline: none;
+    font-weight: 600;
+     padding-right :90px;
+}
+
+.booking-list-3 {
+    padding: 10px 5px;
+    border: none;
+    background: transparent;
+    font-size: 15px;
+    color: #e9e2e2;
+    /* black text */
+    outline: none;
+    font-weight: 600;
+     padding-right :90px;
+}
+
+.booking-list-4 {
+    padding: 10px 10px;
+    border: none;
+    background: transparent;
+    font-size: 15px;
+    color: #e9e2e2;
+    /* black text */
+    outline: none;
+    font-weight: 600;
+     padding-right :60px;
+}
+
+.book-btn {
+    padding: 10px 46px;
+    border-radius: 6px;
+    border: 0;
+    background-color: #817064c6;
+    color: #e9e2e2;
+}
+
+.butn { 
+    margin-left: 90px;
+    background-color: #ad2132;
+    color: white;
+    border: 0;
+    padding: 10px 50px 10px 50px;
+}
+
+.cn3{
+background-color: #f5f3f0;
+}
+
+.lux-heading {
+    text-align: center;
+    padding: 40px 0;
+    font-family: "Times New Roman", serif;
+}
+.lux-heading h1 {
+    font-size: 36px;
+    font-weight: 400;
+    color: #282d35;
+    
+}
+.lux-heading2{
+
+  font-size: 1.3rem;
+  font-family: sans-serif;
+  font-weight: 500;
+  color: #262222da ;
+
+}
+.card-body{
+
+border-left: 1px solid #B9A47B;
+  border-right: 1px solid #B9A47B;
+  border-bottom: 1px solid #B9A47B;
+
+    font-family: serif; /* Use an elegant font */
+    color: #4C4B4A;
+
+   
+}
+.Manaliimg{
+
+ width: 100%;
+  height: 400px;
+  object-fit: cover;
+
+}
+
+.slick-prev:before, .slick-next:before{
+      font-size: 40px !important;
+      
+    background-color:   #f7f4e5!important;
+    
+}
+.slick-prev{
+    left: -50px !important;
+}
+
+.cn4 {
+    margin-top: 120px;
+    height: 800px;
+    background-image: url("/images/hotels/offer3.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative; /* IMPORTANT */
+    overflow: hidden;
+}
+
+/* Dark overlay */
+.cn4::before {
+ content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.35);  /* increase this to 0.40–0.45 to make more dull */
+    z-index: 1; /* overlay above image */
+}
+
+.offers{
+
+  position: relative;
+    z-index: 2; /* text ABOVE overlay */
+    margin-top: 60px;
+}
+
+
+.offers p {
+
+   position: relative;
+    z-index: 2; /* text ABOVE overlay */
+    font-size: 4rem;
+    color: white;
+    font-weight: 300;
+    margin-bottom: 0;
+}
+
+.offers .p2{
+      
+    font-size: 1.7rem;
+    
+}
+
+.btn-explore{
+
+
+margin-top: 490px;
+  
+    padding: 6px 43px 8px 43px ;
+    color: rgb(173, 33, 50);
+    font-size: 1.4rem;
+    font-weight: 400;
+    background-color:#d5d6d7;
+      border: 0;
+    z-index: 2; /* text ABOVE overlay */
+
+}
+
+
+
+.cn5 {
+    margin-top: 120px;
+    height: 800px;
+    background-image: url("/images/hotels/c1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative; /* IMPORTANT */
+    overflow: hidden;
+}
+
+/* Dark overlay */
+.cn5::before {
+ content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.35);  /* increase this to 0.40–0.45 to make more dull */
+    z-index: 1; /* overlay above image */
+}
+
+
+
+.offers1{
+
+  position: relative;
+    z-index: 2; /* text ABOVE overlay */
+    margin-top: 30px;
+}
+
+
+.offers1 p {
+
+   position: relative;
+    z-index: 2; /* text ABOVE overlay */
+    font-size: 4rem;
+    color: white;
+    font-weight: 300;
+    margin-bottom: 0;
+}
+
+.offers1 .p2{
+      
+    font-size: 1.2rem;
+
+
+    
+}
+
+.our{
+
+    font-size: 2rem;
+}
+
+.cn6 {
+    margin-top: 120px;
+    height: 800px;
+    background-image: url("/images/hotels/h1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative; /* IMPORTANT */
+    overflow: hidden;
+}
+
+/* Dark overlay */
+.cn6::before {
+ content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.35);  /* increase this to 0.40–0.45 to make more dull */
+    z-index: 1; /* overlay above image */
+}
+
+.offers2{
+
+  position: relative;
+    z-index: 2; /* text ABOVE overlay */
+    margin-top: 25px;
+}
+
+
+.offers2 p {
+
+   position: relative;
+    z-index: 2; /* text ABOVE overlay */
+    font-size: 4rem;
+    color: white;
+    font-weight: 300;
+    margin-bottom: 0;
+}
+
+.offers2 .p2{
+      
+    font-size: 1.3rem;
+
+    
+}
+
+.btn-explore1{
+
+
+margin-top: 490px;
+  
+    padding: 6px 43px 8px 43px ;
+    color: rgb(173, 33, 50);
+    font-size: 1.4rem;
+    font-weight: 400;
+    background-color:#d5d6d7;
+      border: 0;
+    z-index: 2; /* text ABOVE overlay */
+
+}
+
+.con1{
+
+    background-color: #2C2C2C;
+    color:  #ffffffec;
+
+}
+
+.footer-newsletter form {
+    display: flex;
+}
+
+
+.footer-newsletter input[type="email"] {
+    padding: 10px;
+    border: 1px solid #ababab ;
+    background-color: transparent;
+    color: #FFFFFF !important ;
+    flex-grow: 1;
+  
+     border-right: none;
+    border-top: none;
+    border-left: none;
+}
+
+.footer-newsletter button {
+    padding: 10px 20px;
+    background-color: #F7D786 ;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    color: #2C2C2C;
+    white-space: nowrap;
+}
+
+.footer-middle {
+     
+  
+    font-size: 0.9rem;
+ 
+}
+
+
+.footer-bottom {
+    display: flex;
+   
+    padding-top: 20px;
+    font-size: 1.2rem;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.fp{
+
+    margin-top: 10px;
+}
+
+.hl{
+   
+   background-color:  #ffffffec;
+   width: 1px;
+   height: 36px;
+   
+}
+
+.ft-list li{
+
+    margin-top: 20px;
+}
+.ft-sub{
+
+font-family: "Playfair Display", sans-serif;
+ font-size: 1.5rem;
+}
+
+.footer-links h1 {
+
+    font-size: 1.5rem;
+    font-weight: 500;
+
+
+}
+
+.signup{
+
+font-family: "Playfair Display", sans-serif;
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.2; 
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #ffffff !important;     /* pure white arrow */
+  background: transparent;      /* no background */
+  width: auto;
+  height: auto;
+  z-index: 50;
+}
+
+/* Arrow size */
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 30px;    /* arrow size */
+  font-weight: 300;  /* thin arrow */
+}
+
+/* Slight shadow so image pe bhi dikhe */
+.swiper-button-prev,
+.swiper-button-next {
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+
+.swiper-pagination{
+
+    display: none !important;
+}
+
+.card-img {
+  overflow: hidden;          /* hides image edges while zooming */
+}
+
+.card-img img {
+  transition: transform 0.8s ease;   /* smooth animation */
+  transform: scale(1); 
+}
+
+.card-img:hover img {
+  transform: scale(1.1);     /* zoom in */
+}
+
+
+.hero-banner{
+  position: relative;
+  background-image: url("/images/hotels/Manali1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+/* Top Small Gradient Overlay */
+.hero-banner::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 22%; /* adjust darkness height */
+  background: linear-gradient(
+  to bottom,
+  rgba(56, 56, 56, 0.853),
+    rgba(66, 66, 66, 0) 
+  );
+  pointer-events: none;
+}
+
+
+.hero-banner2{
+  position: relative;
+  background-image: url("/images/hotels/masoori1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+/* Top Small Gradient Overlay */
+.hero-banner2::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 22%; /* adjust darkness height */
+  background: linear-gradient(
+  to bottom,
+  rgba(56, 56, 56, 0.853),
+    rgba(66, 66, 66, 0) 
+  );
+  pointer-events: none;
+}
+
+
+.hero-banner3{
+  position: relative;
+  background-image: url("/images/hotels/dharamshala1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+/* Top Small Gradient Overlay */
+.hero-banner3::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 22%; /* adjust darkness height */
+  background: linear-gradient(
+  to bottom,
+  rgba(56, 56, 56, 0.853),
+    rgba(66, 66, 66, 0) 
+  );
+  pointer-events: none;
+}
+
+.hero-banner4{
+  position: relative;
+  background-image: url("/images/hotels/dhalousie1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+/* Top Small Gradient Overlay */
+.hero-banner4::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 22%; /* adjust darkness height */
+  background: linear-gradient(
+  to bottom,
+  rgba(56, 56, 56, 0.853),
+    rgba(66, 66, 66, 0) 
+  );
+  pointer-events: none;
+}
+
+
+.hero-banner5{
+  position: relative;
+  background-image: url("/images/hotels/nainital1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+/* Top Small Gradient Overlay */
+.hero-banner5::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 22%; /* adjust darkness height */
+  background: linear-gradient(
+  to bottom,
+  rgba(56, 56, 56, 0.853),
+    rgba(66, 66, 66, 0) 
+  );
+  pointer-events: none;
+}
+.hero-banner6{
+  position: relative;
+  background-image: url("/images/hotels/darjleeng1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+/* Top Small Gradient Overlay */
+.hero-banner6::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 22%; /* adjust darkness height */
+  background: linear-gradient(
+  to bottom,
+  rgba(56, 56, 56, 0.853),
+    rgba(66, 66, 66, 0) 
+  );
+  pointer-events: none;
+}
+
+
+.Room-hero-banner{
+  position: relative;
+  background-image: url("/images/rooms/suites1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+/* Top Small Gradient Overlay */
+.Room-hero-banner::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 22%; /* adjust darkness height */
+  background: linear-gradient(
+  to bottom,
+  rgba(56, 56, 56, 0.853),
+    rgba(66, 66, 66, 0) 
+  );
+  pointer-events: none;
+}
+
+
+
+.roomcon {
+    margin-top: 10px;
+    height: 600px;
+   
+    background-image: url("/images/rooms/suites1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative; /* IMPORTANT */
+    overflow: hidden;
+   
+  
+}
+
+/* Dark overlay */
+.roomcon::before {
+ content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.047);  /* increase this to 0.40–0.45 to make more dull */
+    z-index: 1; /* overlay above image */
+}
+
+.Room-hero-banner1{
+  position: relative;
+  background-image: url("/images/rooms/room2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+/* Top Small Gradient Overlay */
+.Room-hero-banner1::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 22%; /* adjust darkness height */
+  background: linear-gradient(
+  to bottom,
+  rgba(56, 56, 56, 0.853),
+    rgba(66, 66, 66, 0) 
+  );
+  pointer-events: none;
+}
+
+
+.roomcon1 {
+    margin-top: 10px;
+    height: 600px;
+   
+    background-image: url("/images/rooms/room2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative; /* IMPORTANT */
+    overflow: hidden;
+   
+  
+}
+
+/* Dark overlay */
+.roomcon1::before {
+ content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.047);  /* increase this to 0.40–0.45 to make more dull */
+    z-index: 1; /* overlay above image */
+}
+
+.Room-hero-banner2{
+  position: relative;
+  background-image: url("/images/rooms/room1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+/* Top Small Gradient Overlay */
+.Room-hero-banner2::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 22%; /* adjust darkness height */
+  background: linear-gradient(
+  to bottom,
+  rgba(56, 56, 56, 0.853),
+    rgba(66, 66, 66, 0) 
+  );
+  pointer-events: none;
+}
+
+
+.roomcon2 {
+    margin-top: 10px;
+    height: 600px;
+   
+    background-image: url("/images/rooms/room1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative; /* IMPORTANT */
+    overflow: hidden;
+   
+  
+}
+
+/* Dark overlay */
+.roomcon2::before {
+ content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.047);  /* increase this to 0.40–0.45 to make more dull */
+    z-index: 1; /* overlay above image */
+}
+
+
+.Room-hero-banner3{
+  position: relative;
+  background-image: url("/images/rooms/room3.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+/* Top Small Gradient Overlay */
+.Room-hero-banner3::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 22%; /* adjust darkness height */
+  background: linear-gradient(
+  to bottom,
+  rgba(56, 56, 56, 0.853),
+    rgba(66, 66, 66, 0) 
+  );
+  pointer-events: none;
+}
+
+
+.roomcon3{
+    margin-top: 10px;
+    height: 600px;
+   
+    background-image: url("/images/rooms/room1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative; /* IMPORTANT */
+    overflow: hidden;
+   
+  
+}
+
+/* Dark overlay */
+.roomcon3::before {
+ content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.047);  /* increase this to 0.40–0.45 to make more dull */
+    z-index: 1; /* overlay above image */
+}
+
+.Room-hero-banner4{
+  position: relative;
+  background-image: url("/images/rooms/deluxeroom.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+/* Top Small Gradient Overlay */
+.Room-hero-banner4::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 22%; /* adjust darkness height */
+  background: linear-gradient(
+  to bottom,
+  rgba(56, 56, 56, 0.853),
+    rgba(66, 66, 66, 0) 
+  );
+  pointer-events: none;
+}
+
+
+.roomcon4 {
+    margin-top: 10px;
+    height: 600px;
+   
+    background-image: url("/images/rooms/deluxeroom.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative; /* IMPORTANT */
+    overflow: hidden;
+   
+  
+}
+
+/* Dark overlay */
+.roomcon4::before {
+ content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.047);  /* increase this to 0.40–0.45 to make more dull */
+    z-index: 1; /* overlay above image */
+}
+
+.Room-hero-banner5{
+  position: relative;
+  background-image: url("/images/rooms/deluxeroom1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+/* Top Small Gradient Overlay */
+.Room-hero-banner5::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 22%; /* adjust darkness height */
+  background: linear-gradient(
+  to bottom,
+  rgba(56, 56, 56, 0.853),
+    rgba(66, 66, 66, 0) 
+  );
+  pointer-events: none;
+}
+
+
+.roomcon5 {
+    margin-top: 10px;
+    height: 600px;
+   
+    background-image: url("/images/rooms/deluxeroom1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative; /* IMPORTANT */
+    overflow: hidden;
+   
+  
+}
+
+/* Dark overlay */
+.roomcon5::before {
+ content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.047);  /* increase this to 0.40–0.45 to make more dull */
+    z-index: 1; /* overlay above image */
+}
+
+.roombook{
+
+  margin-top: 490px;
+  
+    padding: 6px 43px 8px 43px ;
+    color: rgb(173, 33, 50);
+    font-size: 1.4rem;
+    font-weight: 400;
+    background-color:#d5d6d7;
+      border: 0;
+    z-index: 6; /* text ABOVE overlay */
+}
+
+
+.offer-banner{
+  position: relative;
+  background-image: url("/images/hotels/offer3.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+/* Top Small Gradient Overlay */
+.offer-banner::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 22%; /* adjust darkness height */
+  background: linear-gradient(
+  to bottom,
+  rgba(56, 56, 56, 0.853),
+    rgba(66, 66, 66, 0) 
+  );
+  pointer-events: none;
+}
+
+.dining-banner{
+  position: relative;
+  background-image: url("/images/rooms/useimg1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+/* Top Small Gradient Overlay */
+.dining-banner::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 22%; /* adjust darkness height */
+  background: linear-gradient(
+  to bottom,
+  rgba(56, 56, 56, 0.853),
+    rgba(66, 66, 66, 0) 
+  );
+  pointer-events: none;
+}
+
+.mce-banner{
+  position: relative;
+  background-image: url("/images/hotels/c1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+/* Top Small Gradient Overlay */
+.mce-banner::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 22%; /* adjust darkness height */
+  background: linear-gradient(
+  to bottom,
+  rgba(56, 56, 56, 0.853),
+    rgba(66, 66, 66, 0) 
+  );
+  pointer-events: none;
+}
+
+
+.Wc-banner{
+  position: relative;
+  height: 100vh;
+  width: 100%;
+
+ 
+  overflow: hidden;
+}
+.bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: -1;
+}
+.overlay {
+  position: absolute;
+  inset: 0;
+   height: 22%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0.25),
+    rgba(0, 0, 0, 0)
+  );
+  pointer-events: none;
+}
+
+.experiences-banner{
+  position: relative;
+  background-image: url("/images/hotels/h1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+/* Top Small Gradient Overlay */
+.experiences-banner::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 22%; /* adjust darkness height */
+  background: linear-gradient(
+  to bottom,
+  rgba(56, 56, 56, 0.853),
+    rgba(66, 66, 66, 0) 
+  );
+  pointer-events: none;
+}
+
+
+
+
+@media only screen and (max-width:768px){
+
+  .nav-color {
+      
+       font-weight: 500;
+      transition:  ease-in-out none!important;
+}
+.nav-color:hover {
+
+    background-color: #f7f4e5;
+    transition:  ease-in-out none!important;
+
+}
+   .logoimg-white, .logoimg-black {
+        width: 60px;
+        height: auto;
+        /* margin-left: 60px; */  
+    }
+
+ .bt-book {
+
+        padding: 5px 10px;
+        height: auto;
+    }
+ 
+    .icon-bar{
+
+        width: 31px;
+        height: 32px;
+    }
+    .right-item{
+    
+      width: auto;
+      height: auto;
+    }
+    .cn2 {
+        position: absolute;
+        height: auto;
+        width:  100%;
+        position: center;
+        top: 99%;
+    }
+
+    .booking-bar {
+        background: rgba(0, 0, 0, 0.405);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        display: block;
+        width: 90% ;
+        height: auto;
+        border-radius: 15px;
+     
+    }
+    .booking-list {
+          padding-right: 50px;  
+    }
+
+    .booking-list-2 {
+          padding-right: 10px;  
+    }
+
+    .booking-list-3 {
+          padding-right: 26px;  
+    }
+    
+
+    
+.footer-newsletter form {
+    display: flex;
+}
+
+.footer-newsletter input[type="email"] {
+    padding: 7px;
+  border: 2px solid #ababab ;
+    background-color: transparent;
+    color: #FFFFFF !important ;
+    border-right: none;
+    border-top: none;
+    border-left: none;
+   
+}
+.footer-newsletter button {
+    padding: 10px 10px;
+    background-color: #F7D786 ;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    color: #2C2C2C;
+    white-space: nowrap;
+    width: auto;
+    height: auto    ;
+}
+
+.ft-list li{
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+.offers{
+    margin-top: 30px;
+}
+
+.offers p{
+ font-size: 2.8rem;
+}
+
+.offers  .p2{
+font-size: 1.2rem;
+width: 100%;
+}
+
+.offers1{
+  position: relative;
+    z-index: 2; /* text ABOVE overlay */
+    margin-top: 30px;
+}
+
+
+.offers1 p {
+   position: relative;
+    z-index: 2; /* text ABOVE overlay */
+    font-size: 1.4rem;
+    color: white;
+    font-weight: 300;
+    margin-bottom: 0;
+}
+
+.offers1 .p2{
+      margin-top: 6px;
+    font-size: 0.6rem;
+    margin-left: 10px;
+}
+
+
+.offers2{
+  position: relative;
+    z-index: 2; /* text ABOVE overlay */
+    margin-top: 30px;
+}
+
+
+.offers2 p {
+   position: relative;
+    z-index: 2; /* text ABOVE overlay */
+    font-size: 1.4rem;
+    color: white;
+    font-weight: 300;
+    margin-bottom: 0;
+}
+
+.offers2 .p2{
+      margin-top: 10px;
+    font-size: 0.6rem;
+    margin-left: 10px;
+}
+
+ .card-img:hover img {
+    transform: scale(1);   /* zoom cancel */
+  }
+
+}
+
+
+
+
+.sidebar ::-webkit-scrollbar{
+    background-color: #f7f4e5;
+    width: 10px;
+}
+
+.sidebar ::-webkit-scrollbar-thumb{
+    background-color: #282d35;
+}
