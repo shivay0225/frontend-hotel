@@ -169,7 +169,7 @@ return(
             </div>
           </div>
         </div>
-        {/* bottom booking bar */}
+        {/*bottom booking bar*/}
 
       </div>
 
@@ -186,14 +186,14 @@ return(
                 <p className=" our  mb-0 c"> Weding & Celebrations </p>
               
               
-                    <span className="lux-line flex lg:justify-center">
+             <span className="lux-line flex lg:justify-center">
                   {" "}
                   <img
                     className="hrimg"
                     src="/images/hrline.png"
                     alt=""
                   />
-                </span>
+             </span>
               </div> 
             </div>
                 <div className="flex">
@@ -286,7 +286,7 @@ return(
                       </ul>
 
 
-                      <ul className="lg:py-3 lg:space-y-12 space-y-7 text-[18px]">
+                   <ul className="lg:py-3 lg:space-y-12 space-y-7 text-[18px]">
 
                         <Link to="/hoteldhalousie" className="block">
                           <li className="lg:border-b border-b-black">
@@ -300,14 +300,14 @@ return(
                           </li>
                         </Link>
 
-                        <Link to="/hoteldarjieeng" className="block">
-                          <li className="lg:border-b border-b-black">
+                       <Link to="/hoteldarjieeng" className="block">
+                           <li className="lg:border-b border-b-black">
                             Darjeeling (West Bengal)
-                          </li>
-                        </Link>
+                           </li>
+                       </Link>
 
                       </ul>
-
+                                                                                      
                     </div>
                   </div>
                 </div>
