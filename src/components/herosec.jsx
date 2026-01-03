@@ -10,7 +10,7 @@ const Herosec = () =>{
 
 return(
     <>
-     <div className=" container w-full cn1 lg:h-[100vh] h-[90vh]">
+     <div className=" container  cn1 lg:h-[100vh] h-[90vh]">
              
 
              <Header/>

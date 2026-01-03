@@ -2,9 +2,54 @@ import Footer from "../components/footer"
 import Header1 from "../components/header2"
 import Footer1 from "../components/footer2"
 import { Link } from "react-router-dom"
+import axios from 'axios'
+import toast from 'react-hot-toast'
+import { useState } from "react"
+
 
 const Signup = () =>{
 
+  const [firstname,SetfirstName] = useState("");
+  const [name,SetName] = useState("");
+    const [email,SetEmail] = useState("");
+    const [password, SetPassword] = useState("");
+      const [loading,Setloading] = useState(false);
+
+
+      const Handlesubmit = async (e) =>{
+         e.preventDefault();
+          Setloading(true);
+         
+
+          try {
+             if( firstname== "" && name == "" && email =="" &&  password ==""){
+
+          throw new Error ("Please Fill details")
+             }
+
+             const res = await axios.post("http://127.0.0.1:5000/auth/register", {
+              firstname,
+              name,
+              email,
+              password
+             })
+
+            if(res.data.status == true){
+
+                toast.success(res.data.status)
+            }
+
+          } catch (error) {
+               console.log(error);
+                 toast.error(error?.res?.data?.message || error.message )
+
+          }
+          finally{
+
+            Setloading(false)
+          }
+
+      }
 
     return(
 
@@ -19,7 +64,7 @@ const Signup = () =>{
   <h1 className="font-[Playfair_Display] lg:text-[2.5rem] text-[1.9rem] font-normal tracking-[0.05em] text-[#6f6f6f] mb-12">
     Sign up with SR Haven </h1>
   {/* Form */}
-  <form className=" space-y-8">
+  <form className=" space-y-8" method="post" onSubmit={Handlesubmit}>
     {/* Email */}
 
     <div className=" gap-5 lg:flex hidden ">
@@ -27,26 +72,30 @@ const Signup = () =>{
       type="text"
       placeholder="First Name *"
       className="w-[70%] border border-gray-400 px-4 py-3 text-gray-600 bg-transparent outline-none focus:border-gray-600"
+       onKeyUp={ (e)=> SetfirstName(e.target.value)}
     />
 
      <input
       type="text"
       placeholder="Last Name*"
       className="w-[70%] border border-gray-400 px-4 py-3 text-gray-600 bg-transparent outline-none focus:border-gray-600"
+      onKeyUp={ (e)=> SetName(e.target.value)}
     />
 
     </div>
-     <div className=" gap-5  lg:flex hidden ">
+     <div className=" gap-5  lg:flex hidden">
     <input
       type="email"
       placeholder="Email*"
       className="w-[70%] border border-gray-400 px-4 py-3 text-gray-600 bg-transparent outline-none focus:border-gray-600"
+      onKeyUp={ (e)=> SetEmail(e.target.value)}
     />
     {/* Password */}
     <input
       type="password"
       placeholder="Password*"
       className="w-[70%] border border-gray-400 px-5 py-3 text-gray-600 bg-transparent outline-none focus:border-gray-600"
+     onKeyUp={ (e)=> SetPassword(e.target.value)}
     />
     </div>
     {/* {module} */}
@@ -113,18 +162,12 @@ const Signup = () =>{
 </>
 
     {/* Button */}
-
-  </form>
-   
-</div>
-  </div>
-  <div className="text-center ">
-    <div className="lg:px-155 px-2">
-   <button
-        type="submit"
-        class="  w-full  px-12 py-3 bg-[#ad2132] text-white text-lg tracking-wide hover:bg-[#ad2132] transition"
+     <div className="text-center ">
+    <div className="lg:px-50 px-2">
+   <button type="submit"
+        class="w-full  px-12 py-3 bg-[#ad2132] text-white text-lg tracking-wide hover:bg-[#ad2132] transition" 
       >
-      Register
+      {loading ? "Registering..." : "Register"} 
       </button>
 </div>
        <div class=" lg-pt-4 pt-6 lg:pb-6 pb-9 text-center text-gray-600 underline">
@@ -132,6 +175,12 @@ const Signup = () =>{
         <Link to={"/login"} href="#" class="hover:text-gray-800" > Already have an account</Link>
       </div>
       </div>
+
+  </form>
+   
+</div>
+  </div>
+ 
       
       </div>
          
