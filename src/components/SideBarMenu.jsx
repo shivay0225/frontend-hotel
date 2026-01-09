@@ -7,7 +7,7 @@ const SideBarMenu = ({ open, setOpen, menuOpen, setMenuOpen, setDestinationOpen,
     return(
         <>
             <div
-                    className={`fixed lg:top-25.5 top-15.5 left-0 z-100 h-screen sidebar lg: w-80 bg-[#f7f4e5] 
+                    className={`fixed lg:top-25.5 top-15.5 left-0 z-100 h-screen sidebar lg:w-100 w-80 bg-[#f7f4e5] 
                        transform transition-transform duration-700 ease-in-out
                       ${menuOpen ? "translate-x-0" : "-translate-x-full"}`}
                   >
