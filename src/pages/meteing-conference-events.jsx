@@ -32,7 +32,7 @@ const toggleDropdown = () => {
     return(
 
         <>
-        <div className=" container mce-banner">
+        <div className=" w-full mce-banner">
 
         <Header />
         {/* bootom booking bar */}
@@ -159,10 +159,10 @@ const toggleDropdown = () => {
       </div>
 
       
-      <div className="container cn3 ">
+      <div className=" w- full cn3 ">
        
 
-       <div className="container">
+       <div className="w-full ">
              <div className="lux-heading ">
                             <div className="lg:mt-5 mt-36">
                                 <p className=" our font-[400]  subpixel-antialiased mb-0">Meeting, Conference & Events </p>
@@ -177,7 +177,7 @@ const toggleDropdown = () => {
                             </div>
                         </div> 
 
-            <div className="container mt-7 lg:flex  lg:px-30 px-3 gap-14">
+            <div className=" w-full  mt-7 lg:flex  lg:px-30 px-3 gap-14">
               <div className="">
         <div
           className="card  bg-transparent "

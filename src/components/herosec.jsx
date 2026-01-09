@@ -10,13 +10,13 @@ const Herosec = () =>{
 
 return(
     <>
-     <div className=" container  cn1 lg:h-[100vh] h-[90vh]">
+     <div className=" w-full  cn1 lg:h-[100vh] h-[90vh]">
              
 
              <Header/>
 
          {/* bootom booking bar */}
-          <div className=" flex justify-center items-center">
+          <div className=" w-full flex justify-center items-center">
             <div className="  cn2  flex justify-center items-center ">
               <div className="booking-bar lg:flex lg:py-2 py-4  justify-between items-center">
                 <div className="booking-item lg:my-0 my-3 ">

@@ -33,12 +33,12 @@ const Header = () => {
 
   
         <header
-         className={` all container nav-color fixed top-0 left-0 w-full z-100 
+         className={` all nav-color fixed top-0 left-0 w-full z-100 
          ${menuOpen || scrolled ? "nav-active bg-[#f7f4e5] " : " bg-transparent  hover:bg-[#f7f4e5] transition-colors duration-700 ease-in-out "}`}
          >
             <nav
               aria-label="Global"
-              className=" flex items-center justify-between lg:px-7 px-4  lg:py-4 py-3"
+              className=" w-full  flex items-center justify-between lg:px-7 px-4  lg:py-4 py-3"
             >
               <div className="flex-1 ">
                 <div className="flex items-center gap-5">

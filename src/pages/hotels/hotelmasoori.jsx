@@ -321,7 +321,7 @@ const toggleDropdown = () => {
           </div>
         </div>
         
-        <div className="container">
+        <div className="w-full">
          <div className="  lg:px-18 px-3">
           <div
             className="row px-1"

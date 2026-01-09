@@ -5,51 +5,48 @@ import { Link } from "react-router-dom"
 import toast from 'react-hot-toast'
 import axios from 'axios'
 import { useState } from "react"
-import { useEffect } from "react"
-const Signin = () =>{
 
-  const [email,SetEmail] = useState("");
-   const [password,SetPassword] = useState("");
-    const [loading,Setloading] = useState(false);
+
+
+const VerifyOtp = ({expired_at}) =>{
     
 
+  const [loading, Setloading] = useState(false);
+  const [otp, SetOtp] = useState("");
+const email = window.location.search?.split("?email=")[1];
 
-   const HandleLogin = async(e) =>{
-   e.preventDefault();
-    Setloading(true);
+  const handleOtp = async  (e) =>{
+     e.preventDefault();
 
-  try {
-    
+ try {
 
-    if( email === "" && password== ""){
+   Setloading(true);
 
-          toast.error("Please Fill details")
-             }
-
-             const res = await axios.post("http://127.0.0.1:5000/auth/login", {
-
-              email,
-              password
-             });
-
-             if(res.data.status == true){
-                 toast.success(res.data.status);
-                 window.location.href= "/verifyotp?email="+email;
-             }
-
-  } catch (error) {
-      console.log(error);
-      toast.error(error?.res?.data?.message || error.message);
-  }
-
-finally{
-
-  Setloading(false)
-}
-
+   if( email=="" &&   otp == ""){
+  toast.error("Please fill details");
    }
 
-    return(
+   const res = await axios.post("http://127.0.0.1:5000/auth/verifyotp", {          
+    type: "login",
+     email,
+    otp
+   })
+console.log(res.data);
+             
+     window.location.href = "/" ;
+
+ }   catch (error) {
+
+  toast.error( error.message);
+ }
+
+ finally{
+  Setloading(false);
+ }
+
+  }
+
+     return(
 
         <>
         <Header1/>
@@ -60,34 +57,32 @@ finally{
           <div className="w-full  max-w-2xl lg:py-16 pt-10 px-6 text-center">
   {/* Heading */}
   <h1 className="font-[Playfair_Display] lg:text-[2.5rem] text-[1.9rem]  font-normal tracking-[0.05em] text-[#6f6f6f] mb-2">
-    Sign in with SR Haven </h1>
+Verify OTP </h1>
   {/* Form */}
-  <form className=" space-y-8" onSubmit={HandleLogin}>
+  <form className=" space-y-8" onSubmit={handleOtp}>
     {/* Email */}
     {/* {module} */}
      
        <div className=" gap-5  ">
 
         <input
-      type="email"
-      placeholder="Email*"
+      type="otp"
+      placeholder="Enter your OTP "
       className="w-[95%] mt-8 border border-gray-400 px-4 llg:py-4 py-3  text-gray-600 bg-transparent outline-none focus:border-gray-600"
-      onKeyUp={(e) => SetEmail(e.target.value)}
+     onKeyUp={(e) => SetOtp(e.target.value)}
     />
+     <p>Email: {email}</p>
+
+      <p> expired_at : {expired_at}</p>
     {/* Password */}
-    <input
-      type="password"
-      placeholder="Password*"
-      className="w-[95%] mt-6  border border-gray-400 px-4 lg:py-4 py-3 text-gray-600 bg-transparent outline-none focus:border-gray-600"
-      onKeyUp={(e) => SetPassword(e.target.value)}
-    />
+ 
 
     </div>
-     <div class="text-left lg:ms-6 ms-4 text-gray-600 underline">
+     {/* <div class="text-left lg:ms-6 ms-4 text-gray-600 underline">
         <a href="#" class="hover:text-gray-800">Forgot password?</a>
         <span class="mx-2">|</span>
         <Link to={"/signup"} href="#" class="hover:text-gray-800">Create an account</Link>
-      </div>
+      </div> */}
 
     {/* Links */}
   <>
@@ -101,7 +96,7 @@ finally{
         type="submit"
         class="w-full  px-12 py-3 bg-[#ad2132] text-white text-lg tracking-wide hover:bg-[#ad2132] transition"
       > 
-  { loading ? "loging..":  "login" }
+     {loading ? "Verifying..." : "Verify Otp"}
       </button>
       </div>
   </form>
@@ -119,4 +114,4 @@ finally{
     )
 }
 
-export default Signin
+export default VerifyOtp

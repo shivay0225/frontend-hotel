@@ -44,7 +44,7 @@ const Deluxeroom = () => {
      */}
 
 
-            <div className=" container Room-hero-banner4">
+            <div className=" w-full Room-hero-banner4">
    <div>
                 <Header open={open} setOpen = {setOpen} />
                 
@@ -173,9 +173,9 @@ const Deluxeroom = () => {
 
             </div>
 
-            <div className="container cn3 ">
+            <div className=" w-full cn3 ">
 
-                <div className="container" >
+                <div className="w-full" >
                     <div>
                         <div className="lux-heading lg:mt-0 ">
                             <div className="lg:mt-5  mt-36 ">

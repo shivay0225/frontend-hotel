@@ -44,7 +44,7 @@ const Gardenroom = () => {
      */}
 
 
-            <div className=" container Room-hero-banner2">
+            <div className=" w-full Room-hero-banner2">
    <div>
                 <Header open={open} setOpen = {setOpen} />
                 
@@ -173,7 +173,7 @@ const Gardenroom = () => {
 
             </div>
 
-            <div className="container cn3 ">
+            <div className=" w-full cn3 ">
 
                 <div className="container" >
                     <div>

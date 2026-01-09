@@ -464,12 +464,12 @@ const Header1  = () =>{
 
    
        <header
-         className={`container nav-color bg-[#f7f4e5] border-b  border-b-blac fixed top-0 left-0 w-full z-100 
+         className={` nav-color bg-[#f7f4e5] border-b  border-b-blac fixed top-0 left-0 w-full z-100 
          ${menuOpen || scrolled ? "bg-[#f7f4e5]" : " "}`}
          >
             <nav
               aria-label="Global"
-              className=" flex items-center justify-between lg:px-7 px-4  lg:py-4 py-3"
+              className=" w-full  flex items-center justify-between lg:px-7 px-4  lg:py-4 py-3"
             >
               <div className="flex-1 ">
                 <div className="flex items-center gap-5">

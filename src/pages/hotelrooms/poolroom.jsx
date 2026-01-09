@@ -44,7 +44,7 @@ const Poolroom = () => {
      */}
 
 
-            <div className=" container Room-hero-banner1">
+            <div className=" w-full Room-hero-banner1">
    <div>
                 <Header open={open} setOpen = {setOpen} />
                 
@@ -173,7 +173,7 @@ const Poolroom = () => {
 
             </div>
 
-            <div className="container cn3 ">
+            <div className="w-full cn3 ">
 
                 <div className="container" >
                     <div>
@@ -190,8 +190,8 @@ const Poolroom = () => {
                                 </span>
                             </div>
                         </div>
-                        <div className="container lg:px-18">
-                            <div className="container roomcon1 ">
+                        <div className=" w-full lg:px-18">
+                            <div className=" w-full  roomcon1 ">
                                 <div className="flex justify-center">
                                     <button  onClick={() => setOpen(true)} className="roombook "> Book now </button>
 

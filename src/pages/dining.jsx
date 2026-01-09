@@ -36,7 +36,7 @@ const toggleDropdown = () => {
 
         <>
         
-          <div className=" container dining-banner">
+          <div className=" w-full dining-banner">
 
         <Header />
         {/* bootom booking bar */}
@@ -161,9 +161,9 @@ const toggleDropdown = () => {
 
       </div>
 
-      <div className="container cn3 ">
+      <div className=" w-full cn3 ">
        
-          <div className="container">
+          <div className="w-full">
                   <div className="  lg:px-18 px-3">
                    <div
                      className="row px-1"

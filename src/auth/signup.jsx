@@ -10,7 +10,7 @@ import { useState } from "react"
 const Signup = () =>{
 
   const [firstname,SetfirstName] = useState("");
-  const [name,SetName] = useState("");
+  const [lastname,SetlastName] = useState("");
     const [email,SetEmail] = useState("");
     const [password, SetPassword] = useState("");
       const [loading,Setloading] = useState(false);
@@ -22,14 +22,14 @@ const Signup = () =>{
          
 
           try {
-             if( firstname== "" && name == "" && email =="" &&  password ==""){
+             if( firstname== "" && lastname == "" && email =="" &&  password ==""){
 
-          throw new Error ("Please Fill details")
+         toast.error("Please Fill details")
              }
 
              const res = await axios.post("http://127.0.0.1:5000/auth/register", {
               firstname,
-              name,
+              lastname,
               email,
               password
              })
@@ -37,6 +37,7 @@ const Signup = () =>{
             if(res.data.status == true){
 
                 toast.success(res.data.status)
+                  window.location.href= "/" 
             }
 
           } catch (error) {
@@ -56,7 +57,7 @@ const Signup = () =>{
         <>
         <Header1/>
        
-      <div className="container cn3">
+      <div className="w-full cn3">
         <div className="flex py-12 justify-center">
 
         <div className="w-full  max-w-2xl  lg:pt-26 pt-22 px-6 text-center">
@@ -79,7 +80,7 @@ const Signup = () =>{
       type="text"
       placeholder="Last Name*"
       className="w-[70%] border border-gray-400 px-4 py-3 text-gray-600 bg-transparent outline-none focus:border-gray-600"
-      onKeyUp={ (e)=> SetName(e.target.value)}
+      onKeyUp={ (e)=> SetlastName(e.target.value)}
     />
 
     </div>

@@ -17,7 +17,7 @@ export default function Specialoffer() {
 return(
 
     <>
-      <div className=" container offer-banner">
+      <div className=" w-full offer-banner">
 
         <Header />
         {/* bootom booking bar */}
@@ -140,10 +140,10 @@ return(
 
       </div>
 
-  <div className="container cn3 ">
+  <div className=" w-full  cn3 ">
        
 
-       <div className="container">
+       <div className="w-full">
              <div className="lux-heading ">
                             <div className="lg:mt-5 mt-36">
                                 <p className=" our font-[400]  subpixel-antialiased mb-0">Discover a World of Offers at SR Heaven Hotels </p>

@@ -4,9 +4,9 @@ return(
 
     <>
     {/* laptop */}
-     <footer className="  w-full px-3  lg:flex hidden" >
+     <footer className="   w-full px-3  lg:flex hidden" >
   
-     <div className="container con1 pb-8  px-24">
+     <div className="w-full con1 pb-8  px-24">
          <div className="footer-top flex justify-between lg:pt-12">
       <div className="footer-links   ">
        <h1>About us </h1>
@@ -145,9 +145,9 @@ Leela Palaces Hotels & Resorts Limited (Equity)
     </footer>
 
      {/* mobile */}
-      <footer className=" px-3 pb-4 lg:hidden">
+      <footer className="  w-full  px-3 pb-4 lg:hidden">
   
-     <div className="container con1 px-4  ">
+     <div className=" w-full con1 px-4  ">
          <div className="footer-top flex justify-between ">
       <div className="footer-links-group mt-2 ">
         {/* <p>About Us</p> */}

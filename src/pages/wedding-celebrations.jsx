@@ -33,7 +33,7 @@ return(
    
  
     <>
-      <div className=" container Wc-banner">
+      <div className=" w-full Wc-banner">
    <video
   className="bg-video"
   autoPlay
@@ -174,7 +174,7 @@ return(
       </div>
 
 
-      <div className="container cn3">
+      <div className="w-full cn3">
 
       <div className="container">
       <div className="  lg:px-18 px-3">

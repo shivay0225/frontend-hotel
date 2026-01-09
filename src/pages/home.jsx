@@ -38,11 +38,11 @@ const toggleDropdown = () => {
 
     <Herosec/>
       
-      <div className="container cn3 ">
-        <div className="lg:px-18 px-3">
+      <div className=" w-full  cn3 ">
+        <div className=" w-full lg:px-18 px-3">
 
           <div
-            className="row px-1"
+            className=" w-full row px-1"
           >
             <div className="lux-heading lg:mt-0 ">
               <div className="lg:mt-5  mt-36 ">
@@ -181,7 +181,7 @@ const toggleDropdown = () => {
           </div>
 
         </div>
-        <div className="px-3">
+        <div className=" w-full px-3">
           <div className="row cn4">
           <div className="col offers  text-center">
               <p >Special Offers </p>
@@ -196,7 +196,7 @@ const toggleDropdown = () => {
           </div>
         </div>
         
-        <div className="container">
+        <div className="w-full">
          <div className="  lg:px-18 px-3">
           <div
             className="row px-1"
@@ -344,7 +344,7 @@ const toggleDropdown = () => {
         </div>
         </div>
 
-        <div className="px-3">
+        <div className=" w-full px-3">
           <div className="row cn5">
 
             <div className="col offers1  text-center">
@@ -366,7 +366,7 @@ const toggleDropdown = () => {
 
         </div>
 
-        <div className="container">
+        <div className="w-full">
       <div className="  lg:px-18 px-3">
           <div
             className="row px-1"
@@ -514,7 +514,7 @@ const toggleDropdown = () => {
           </div>
           </div>
         </div>
-             <div className="px-3 ">
+             <div className=" w-full px-3 ">
           <div className="row cn6">
 
             <div className="col offers2  text-center ">
