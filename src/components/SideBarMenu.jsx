@@ -7,7 +7,7 @@ const SideBarMenu = ({ open, setOpen, menuOpen, setMenuOpen, setDestinationOpen,
     return(
         <>
             <div
-                    className={`fixed lg:top-25.5 top-15.5 left-0 z-100 h-screen sidebar lg:w-100 w-80 bg-[#f7f4e5] 
+                    className={`fixed lg:top-25.5 top-15.5 left-0 z-100 h-screen sidebar lg: w-80 bg-[#f7f4e5] 
                        transform transition-transform duration-700 ease-in-out
                       ${menuOpen ? "translate-x-0" : "-translate-x-full"}`}
                   >
@@ -21,7 +21,7 @@ const SideBarMenu = ({ open, setOpen, menuOpen, setMenuOpen, setDestinationOpen,
                     </button>
 
                     {/* MENU CONTENT */}
-                    <div className="px-8 lg:py-9 py-10 space-y-2 text-[18px] font-serif lg:h-[100vh] h-[700px]  overflow-hidden overflow-y-scroll">
+                    <div className="px-8 lg:py-9 py-10 space-y-2 text-[18px] font-serif lg:h-[700px] h-[700px]  overflow-hidden overflow-y-scroll">
                       <div className="border-b lg:pb-5 pb-4 "><Link to={"/"}>Home</Link></div>
                       <div className="border-b lg:pt-2 pt-2  pb-4">
                         <button
