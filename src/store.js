@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import {authAPI} from "../SRhaven copy/src/services/authServices"
+import {authAPI} from "./services/authServices"
 
 export const store = configureStore({
 
