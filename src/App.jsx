@@ -23,9 +23,10 @@ import Mce from './pages/meteing-conference-events'
 import Wc from './pages/wedding-celebrations'
 import Experiences from './pages/experiences'
 import ScrollToTop from "./components/ScrollToTop";
-import VerifyOtp from './auth/verifyotp'
 
 import { Toaster } from 'react-hot-toast'
+import Forgotpass from './auth/forgotpass'
+import ResetPassword from './auth/ResetPassword'
 
 
 
@@ -63,7 +64,9 @@ function App() {
                            <Route path='/meteing-conference-events' element={<Mce/>} />
                                <Route path='/wedding-celebrations' element={<Wc/>} />
                               <Route path='/experiences' element={<Experiences/>} />
-                                <Route path='/verifyotp' element={<VerifyOtp/>} />
+                                 <Route path='/forgotpass' element={<Forgotpass/>} />
+                                 <Route path='/resetpassword/:token' element={<ResetPassword/>} />
+                              
                                  
 
         </Routes>

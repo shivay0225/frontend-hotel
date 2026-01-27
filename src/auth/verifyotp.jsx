@@ -4,16 +4,20 @@ import Footer1 from "../components/footer2"
 import { Link } from "react-router-dom"
 import toast from 'react-hot-toast'
 import axios from 'axios'
-import { useState } from "react"
+import { useEffect,useState } from "react"
 
 
 
-const VerifyOtp = ({expired_at}) =>{
+const VerifyOtp = ({data }) =>{
     
-
+  console.log("message:", data)
   const [loading, Setloading] = useState(false);
   const [otp, SetOtp] = useState("");
-const email = window.location.search?.split("?email=")[1];
+const email = data.email;
+
+
+const expiredAt = data.expired_at;
+
 
   const handleOtp = async  (e) =>{
      e.preventDefault();
@@ -22,22 +26,21 @@ const email = window.location.search?.split("?email=")[1];
 
    Setloading(true);
 
-   if( email=="" &&   otp == ""){
+   if( email=="" &&   otp == ""){ 
   toast.error("Please fill details");
    }
 
    const res = await axios.post("http://127.0.0.1:5000/auth/verifyotp", {          
-    type: "login",
-     email,
+    type: data.type, 
+    email,
     otp
-   })
-console.log(res.data);
-             
-     window.location.href = "/" ;
+   }) 
+     console.log(res.data);
+    window.location.href = "/" ;
+ }  catch (error) {
 
- }   catch (error) {
-
-  toast.error( error.message);
+      toast.error( error.message);
+       console.log(error);
  }
 
  finally{
@@ -73,7 +76,7 @@ Verify OTP </h1>
     />
      <p>Email: {email}</p>
 
-      <p> expired_at : {expired_at}</p>
+      <p> expired_at : {expiredAt}</p>
     {/* Password */}
  
 
@@ -108,7 +111,6 @@ Verify OTP </h1>
       </div>
          
 
-      <Footer1/>
 
         </>
     )

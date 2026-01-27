@@ -1335,9 +1335,9 @@ width: 100%;
 
 .sidebar ::-webkit-scrollbar{
     background-color: #f7f4e5;
-    width: 10px;
+    width: 4px;
 }
 
 .sidebar ::-webkit-scrollbar-thumb{
-    background-color: #282d35;
+    background-color: #6e6e6e;
 }

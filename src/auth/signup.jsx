@@ -4,7 +4,10 @@ import Footer1 from "../components/footer2"
 import { Link } from "react-router-dom"
 import axios from 'axios'
 import toast from 'react-hot-toast'
-import { useState } from "react"
+import { useEffect,useState } from "react"
+import { useRegisterMutation } from '../services/authServices';
+import VerifyOtp from "./verifyotp"
+
 
 
 const Signup = () =>{
@@ -14,42 +17,34 @@ const Signup = () =>{
     const [email,SetEmail] = useState("");
     const [password, SetPassword] = useState("");
       const [loading,Setloading] = useState(false);
+     const [data, setData]= useState({});
+    const [optScreen, setOTPScreen]= useState(false);
+     const [RegisterAccount,  {isLoading, isError, isSuccess, error, data: udata}] = useRegisterMutation();
 
+ useEffect  (() => {
+      
+   if(isSuccess && udata){
+           toast.success(udata.status);
+             
+              setOTPScreen(true)
+                setData(udata.data)
+      }
+      if(error){
+        toast.error(error?.data?.message)
+      }
 
+    },[isLoading, isError , isSuccess, error,  udata] 
+
+    )
       const Handlesubmit = async (e) =>{
          e.preventDefault();
           Setloading(true);
          
-
-          try {
              if( firstname== "" && lastname == "" && email =="" &&  password ==""){
 
          toast.error("Please Fill details")
              }
-
-             const res = await axios.post("http://127.0.0.1:5000/auth/register", {
-              firstname,
-              lastname,
-              email,
-              password
-             })
-
-            if(res.data.status == true){
-
-                toast.success(res.data.status)
-                  window.location.href= "/" 
-            }
-
-          } catch (error) {
-               console.log(error);
-                 toast.error(error?.res?.data?.message || error.message )
-
-          }
-          finally{
-
-            Setloading(false)
-          }
-
+           await RegisterAccount({firstname, lastname, email , password }).unwrap();
       }
 
     return(
@@ -59,8 +54,8 @@ const Signup = () =>{
        
       <div className="w-full cn3">
         <div className="flex py-12 justify-center">
-
-        <div className="w-full  max-w-2xl  lg:pt-26 pt-22 px-6 text-center">
+   {!optScreen  && (
+  <div className="w-full  max-w-2xl  lg:pt-26 pt-22 px-6 text-center">
   {/* Heading */}
   <h1 className="font-[Playfair_Display] lg:text-[2.5rem] text-[1.9rem] font-normal tracking-[0.05em] text-[#6f6f6f] mb-12">
     Sign up with SR Haven </h1>
@@ -180,6 +175,15 @@ const Signup = () =>{
   </form>
    
 </div>
+) }
+
+
+       {optScreen && (
+        <>
+          <VerifyOtp data={data}/>
+        </>
+       )}
+
   </div>
  
       
