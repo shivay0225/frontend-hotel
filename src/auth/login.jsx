@@ -28,11 +28,10 @@ const Signin = () =>{
                 setData(udata.data)
         
       }
-      if(isError){
-        toast.error(error)
-
+      if(error){
+        toast.error(error?.data?.message)
       }
-
+      
     },[isLoading, isError , isSuccess, error,  udata] 
 
     )
