@@ -2,8 +2,8 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Home from "./pages/home"
-import Signup from "./auth/signup"
-import Signin from './auth/login'
+import Signup from "./pages/auth/signup"
+import Signin from './pages/auth/login'
 import Hotelmanali from './pages/hotels/hotelmanali'
 import Herosec from './components/herosec'
 import Hotelmasoori from './pages/hotels/hotelmasoori'
@@ -25,8 +25,8 @@ import Experiences from './pages/experiences'
 import ScrollToTop from "./components/ScrollToTop";
 
 import { Toaster } from 'react-hot-toast'
-import Forgotpass from './auth/forgotpass'
-import ResetPassword from './auth/ResetPassword'
+import Forgotpass from './pages/auth/forgotpass'
+import ResetPassword from './pages/auth/ResetPassword'
 
 
 

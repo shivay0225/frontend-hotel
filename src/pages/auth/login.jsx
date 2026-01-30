@@ -1,13 +1,13 @@
-import Footer from "../components/footer"
-import Header1 from "../components/header2"
-import Footer1 from "../components/footer2"
+import Footer from "../../components/footer"
+import Header1 from "../../components/header2"
+import Footer1 from "../../components/footer2"
 import { Link } from "react-router-dom"
 import toast from 'react-hot-toast'
 import axios from 'axios'
 import { useState } from "react"
 import { useEffect } from "react"
 import VerifyOtp from "./verifyotp"
-import { useLoginMutation } from '../services/authServices';
+import { useLoginMutation } from '../../services/authServices';
 
 const Signin = () =>{
 
@@ -45,6 +45,7 @@ const Signin = () =>{
     if( email === "" && password== ""){   
 
           toast.error("Please Fill details")
+                   return false
              }
           
              await loginacAccount({email,password}).unwrap()

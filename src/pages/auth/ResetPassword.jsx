@@ -1,6 +1,6 @@
-import Footer from "../components/footer"
-import Header1 from "../components/header2"
-import Footer1 from "../components/footer2"
+import Footer from "../../components/footer"
+import Header1 from "../../components/header2"
+import Footer1 from "../../components/footer2"
 import { Link } from "react-router-dom"
 import toast from 'react-hot-toast'
 import axios from 'axios'

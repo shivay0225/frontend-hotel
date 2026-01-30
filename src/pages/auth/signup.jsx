@@ -1,11 +1,11 @@
-import Footer from "../components/footer"
-import Header1 from "../components/header2"
-import Footer1 from "../components/footer2"
+import Footer from "../../components/footer"
+import Header1 from "../../components/header2"
+import Footer1 from "../../components/footer2"
 import { Link } from "react-router-dom"
 import axios from 'axios'
 import toast from 'react-hot-toast'
 import { useEffect,useState } from "react"
-import { useRegisterMutation } from '../services/authServices';
+import { useRegisterMutation } from '../../services/authServices';
 import VerifyOtp from "./verifyotp"
 
 
@@ -38,12 +38,14 @@ const Signup = () =>{
     )
       const Handlesubmit = async (e) =>{
          e.preventDefault();
-          Setloading(true);
+         
          
              if( firstname== "" && lastname == "" && email =="" &&  password ==""){
 
          toast.error("Please Fill details")
+         return false
              }
+
            await RegisterAccount({firstname, lastname, email , password }).unwrap();
       }
 
