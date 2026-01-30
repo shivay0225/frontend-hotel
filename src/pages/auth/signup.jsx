@@ -38,9 +38,10 @@ const Signup = () =>{
     )
       const Handlesubmit = async (e) =>{
          e.preventDefault();
+          
+         console.log(firstname,lastname,email,password)
          
-         
-             if( firstname== "" && lastname == "" && email =="" &&  password ==""){
+             if(firstname=="" || lastname=="" || email=="" ||  password==""){
 
          toast.error("Please Fill details")
          return false
