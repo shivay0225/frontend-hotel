@@ -104,23 +104,28 @@ const Signup = () =>{
       type="text"
       placeholder="First Name *"
       className="w-[95%]  border border-gray-400 px-4 py-3 text-gray-600 bg-transparent outline-none focus:border-gray-600"
+      onKeyUp={ (e)=> SetfirstName(e.target.value)}
     />
 
      <input
       type="text"
       placeholder="Last Name*"
       className="w-[95%] mt-8 border border-gray-400 px-4 py-3 text-gray-600 bg-transparent outline-none focus:border-gray-600"
+        onKeyUp={ (e)=> SetlastName(e.target.value)}
+
     />
         <input
       type="email"
       placeholder="Email*"
       className="w-[95%] mt-8 border border-gray-400 px-4 py-3 text-gray-600 bg-transparent outline-none focus:border-gray-600"
+        onKeyUp={ (e)=> SetEmail(e.target.value)}
     />
     {/* Password */}
     <input
       type="password"
       placeholder="Password*"
       className="w-[95%] mt-8  border border-gray-400 px-5 py-3 text-gray-600 bg-transparent outline-none focus:border-gray-600"
+        onKeyUp={ (e)=> SetPassword(e.target.value)}
     />
 
     </div>
