@@ -1,119 +1,211 @@
-import Footer from "../../components/footer"
-import Header1 from "../../components/header2"
-import Footer1 from "../../components/footer2"
-import { Link } from "react-router-dom"
-import toast from 'react-hot-toast'
-import axios from 'axios'
-import { useEffect,useState } from "react"
+import Footer from "../../components/footer";
+import Header1 from "../../components/header2";
+import Footer1 from "../../components/footer2";
+import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
+import axios from "axios";
+import { useEffect, useRef, useState } from "react";
 
-
-
-const VerifyOtp = ({data }) =>{
-    
-  console.log("message:", data)
+const VerifyOtp = ({ data }) => {
   const [loading, Setloading] = useState(false);
-  const [otp, SetOtp] = useState("");
-const email = data.email;
 
+  // OTP boxes
+  const [otp, setOtp] = useState(["", "", "", "", "", ""]);
 
-const expiredAt = data.expired_at;
+  // 🔑 IMPORTANT: expiredAt as STATE (not const)
+  const [expiredAt, setExpiredAt] = useState(data.expired_at);
 
+  // Timer & resend
+  const [timeLeft, setTimeLeft] = useState(0);
+  const [canResend, setCanResend] = useState(false);
 
-  const handleOtp = async  (e) =>{
-     e.preventDefault();
+  const inputRefs = useRef([]);
 
- try {
+  const email = data.email;
 
-   Setloading(true);
+  // ⏳ Countdown timer (runs again when expiredAt changes)
+  useEffect(() => {
+    if (!expiredAt) return;
 
-   if( email=="" &&   otp == ""){ 
-  toast.error("Please fill details");
-   }
+    const expiryTime = new Date(expiredAt).getTime();
 
-   const res = await axios.post("http://127.0.0.1:5000/auth/verifyotp", {          
-    type: data.type, 
-    email,
-    otp
-   }) 
-     console.log(res.data);
-    window.location.href = "/" ;
- }  catch (error) {
+    const interval = setInterval(() => {
+      const diff = Math.floor((expiryTime - Date.now()) / 1000);
 
-      toast.error( error.message);
-       console.log(error);
- }
+      if (diff <= 0) {
+        clearInterval(interval);
+        setTimeLeft(0);
+        setCanResend(true);
+      } else {
+        setTimeLeft(diff);
+        setCanResend(false);
+      }
+    }, 1000);
 
- finally{
-  Setloading(false);
- }
+    return () => clearInterval(interval);
+  }, [expiredAt]);
 
-  }
+  const formatTime = (seconds) => {
+    const m = Math.floor(seconds / 60);
+    const s = seconds % 60;
+    return `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
+  };
 
-     return(
+  // OTP change
+  const handleChange = (value, index) => {
+    if (!/^[0-9]?$/.test(value)) return;
 
-        <>
-        <Header1/>
-       
-      <div className=" w-full cn3  ">
-        <div className="flex  justify-center lg:py-24 py-20">
+    const newOtp = [...otp];
+    newOtp[index] = value;
+    setOtp(newOtp);
 
-          <div className="w-full  max-w-2xl lg:py-16 pt-10 px-6 text-center">
-  {/* Heading */}
-  <h1 className="font-[Playfair_Display] lg:text-[2.5rem] text-[1.9rem]  font-normal tracking-[0.05em] text-[#6f6f6f] mb-2">
-Verify OTP </h1>
-  {/* Form */}
-  <form className=" space-y-8" onSubmit={handleOtp}>
-    {/* Email */}
-    {/* {module} */}
-     
-       <div className=" gap-5  ">
+    if (value && index < 5) {
+      inputRefs.current[index + 1].focus();
+    }
+  };
 
-        <input
-      type="otp"
-      placeholder="Enter your OTP "
-      className="w-[95%] mt-8 border border-gray-400 px-4 llg:py-4 py-3  text-gray-600 bg-transparent outline-none focus:border-gray-600"
-     onKeyUp={(e) => SetOtp(e.target.value)}
-    />
-     <p>Email: {email}</p>
+  // Backspace handling
+  const handleKeyDown = (e, index) => {
+    if (e.key === "Backspace" && !otp[index] && index > 0) {
+      inputRefs.current[index - 1].focus();
+    }
+  };
 
-      <p> expired_at : {expiredAt}</p>
-    {/* Password */}
- 
+  // Verify OTP
+  const handleOtp = async (e) => {
+    e.preventDefault();
+    const finalOtp = otp.join("");
 
-    </div>
-     {/* <div class="text-left lg:ms-6 ms-4 text-gray-600 underline">
-        <a href="#" class="hover:text-gray-800">Forgot password?</a>
-        <span class="mx-2">|</span>
-        <Link to={"/signup"} href="#" class="hover:text-gray-800">Create an account</Link>
-      </div> */}
+    if (finalOtp.length < 6) {
+      toast.error("Please enter complete OTP");
+      return;
+    }
 
-    {/* Links */}
-  <>
-  {/* Agreement Section */}
-  
-</>
+    try {
+      Setloading(true);
 
-    {/* Button */}
- <div className="text-center  lg:py-12 pt-10 pb-4 lg:px-55 px-2   ">
-   <button
-        type="submit"
-        class="w-full  px-12 py-3 bg-[#ad2132] text-white text-lg tracking-wide hover:bg-[#ad2132] transition"
-      > 
-     {loading ? "Verifying..." : "Verify Otp"}
-      </button>
+      await axios.post("http://127.0.0.1:5000/auth/verifyotp", {
+        type: data.type,
+        email,
+        otp: finalOtp,
+      });
+
+      toast.success("OTP verified");
+      window.location.href = "/";
+    } catch (error) {
+      toast.error(error?.response?.data?.message || "Invalid OTP");
+    } finally {
+      Setloading(false);
+    }
+  };
+
+  // 🔁 Resend OTP (FIXED)
+  const handleResendOtp = async () => {
+    try {
+      setCanResend(false);
+      toast.loading("Resending OTP...");
+
+      const res = await axios.post(
+        "http://127.0.0.1:5000/auth/resendotp",
+        {
+          email,
+          type: data.type,
+        }
+      );
+
+      toast.dismiss();
+      toast.success("OTP resent successfully");
+
+      // ✅ VERY IMPORTANT: update expiredAt from backend
+      setExpiredAt(res.data.data.data.expired_at);
+
+      // reset OTP boxes
+      setOtp(["", "", "", "", "", ""]);
+      inputRefs.current[0].focus();
+
+    } catch (error) {
+      toast.dismiss();
+      toast.error("Failed to resend OTP");
+      setCanResend(true);
+    }
+  };
+
+  return (
+    <>
+      <Header1 />
+
+      <div className="w-full cn3">
+        <div className="flex justify-center lg:py-24 py-20">
+          <div className="w-full max-w-2xl lg:py-16 pt-10 px-6 text-center">
+            <h1 className="font-[Playfair_Display] lg:text-[2.5rem] text-[1.9rem] tracking-[0.05em] text-[#6f6f6f]">
+              Verify OTP
+            </h1>
+
+            <form className="space-y-8" onSubmit={handleOtp}>
+              {/* OTP BOX INPUT */}
+              <div className="w-full flex justify-center gap-3 mt-8 mb-5">
+                {otp.map((digit, index) => (
+                  <input
+                    key={index}
+                    ref={(el) => (inputRefs.current[index] = el)}
+                    type="text"
+                    maxLength="1"
+                    value={digit}
+                    onChange={(e) => handleChange(e.target.value, index)}
+                    onKeyDown={(e) => handleKeyDown(e, index)}
+                    className="lg:w-12 w-full h-12 border border-gray-400 rounded-md text-center text-lg text-gray-700 outline-none focus:border-gray-600 focus:ring-1 focus:ring-gray-400 transition"
+                  />
+                ))}
+              </div>
+
+              <p className="text-gray-600 mt-2 mb-4">
+                Your 6-Digit OTP is sent on :  {email}
+              </p>
+
+              {/* Timer */}
+              <p className="text-sm text-gray-500 mb-3">
+                {timeLeft > 0 ? (
+                  <>
+                    OTP expires in{" "}
+                    <span className="font-medium text-gray-700">
+                      {formatTime(timeLeft)}
+                    </span>
+                  </>
+                ) : (
+                  <span className="text-red-600">OTP expired</span>
+                )}
+              </p>
+
+              {/* Resend */}
+              <button
+                type="button"
+                onClick={handleResendOtp}
+                disabled={!canResend}
+                className={`text-sm underline ${
+                  canResend
+                    ? "text-gray-600 hover:text-gray-800"
+                    : "text-gray-400 cursor-not-allowed"
+                }`}
+              >
+                Resend OTP
+              </button>
+
+              {/* Submit */}
+              <div className="lg:px-50 px-2">
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full px-12 py-3 bg-[#ad2132] text-white text-lg tracking-wide disabled:opacity-60"
+                >
+                  {loading ? "Verifying..." : "Verify OTP"}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
-  </form>
-   
-</div>
-  </div>
- 
-      
-      </div>
-         
+    </>
+  );
+};
 
-
-        </>
-    )
-}
-
-export default VerifyOtp
+export default VerifyOtp;

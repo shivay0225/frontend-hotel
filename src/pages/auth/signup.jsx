@@ -19,7 +19,7 @@ const Signup = () =>{
       const [loading,Setloading] = useState(false);
      const [data, setData]= useState({});
     const [optScreen, setOTPScreen]= useState(false);
-     const [RegisterAccount,  {isLoading, isError, isSuccess, error, data: udata}] = useRegisterMutation();
+     const [RegisterAccount, {isLoading, isError, isSuccess, error, data: udata}] = useRegisterMutation();
 
  useEffect  (() => {
       
@@ -48,6 +48,7 @@ const Signup = () =>{
              }
 
            await RegisterAccount({firstname, lastname, email , password }).unwrap();
+        
       }
 
     return(
