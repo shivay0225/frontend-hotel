@@ -169,9 +169,10 @@ const Signup = () =>{
      <div className="text-center ">
     <div className="lg:px-50 px-2">
    <button type="submit"
+     disabled={isLoading}
         class="w-full  px-12 py-3 bg-[#ad2132] text-white text-lg tracking-wide hover:bg-[#ad2132] transition" 
       >
-      {loading ? "Registering..." : "Register"} 
+      {isLoading ? "Registering..." : "Register"} 
       </button>
 </div>
        <div class=" lg-pt-4 pt-6 lg:pb-6 pb-9 text-center text-gray-600 underline">
